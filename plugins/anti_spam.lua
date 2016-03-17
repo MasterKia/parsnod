@@ -103,10 +103,10 @@ local function pre_process(msg)
           end
           local name = user_print_name(msg.from)
           --Send this to that chat
-          send_large_msg("chat#id"..msg.to.id, "User [ "..name.." ]"..msg.from.id.." Globally banned (spamming)")
+          send_large_msg("chat#id"..msg.to.id, "کاربر [ "..name.." ]"..msg.from.id.." به دلیل اسپم گلوبال بن شد !")
           local log_group = 1 --set log group caht id
           --send it to log group
-          send_large_msg("chat#id"..log_group, "User [ "..name.." ] ( @"..username.." )"..msg.from.id.." Globally banned from ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] (spamming)")
+          send_large_msg("chat#id"..log_group, "کاربر [ "..name.." ] ( @"..username.." )"..msg.from.id.." از گروه ( "..msg.to.print_name.." ) [ "..msg.to.id.." ] به دلیل اسپم گلوبال بن شد !")
         end
       end
       kicktable[user] = true
