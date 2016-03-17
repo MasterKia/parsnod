@@ -38,9 +38,9 @@ local function get_filter(msg, var_name)
   if hash then
     local value = redis:hget(hash, var_name)
     if value == 'msg' then
-      return 'کلمه ی کاربردی شما ممنوع است، در صورت تکرار با شما برخورد خواهد شد'
+      return 'شما از کلمات فیلتر شده استفاده کردید ! در صورت تکرار از گروه حذف خواهید شد !'
     elseif value == 'kick' then
-      send_large_msg('chat#id'..msg.to.id, "به دلیل عدم رعایت قوانین گفتاری از ادامه ی گفتوگو محروم میشوید")
+      send_large_msg('chat#id'..msg.to.id, "به دلیل استفاده از کلمات فیلتر شده از گروه حذف میشوید !")
       chat_del_user('chat#id'..msg.to.id, 'user#id'..msg.from.id, ok_cb, true)
     end
   end
