@@ -249,10 +249,8 @@ function create_config( )
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[
-https://github.com/BH-YAGHI/NOD32-BOT.git
-
-channel : @Nod32team
-sodu : @behrooZyaghi
+channel : @ParsTGBot
+sudo : @SeyedKia
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -373,8 +371,8 @@ ch: @Nod32team
 📃 انتخاب توضيحات گروه
 !set about <متن مورد نظر>
 
-❌ حذف قوانين ، مديران ، اعضا و ...
-!clean [modlist|rules|about]
+❌ حذف اعضا ، مدیران ، قوانین ، توضیحات گروه
+!clean [member|modlist|rules|about]
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 🔒 قفل ادد 
 !lock member
@@ -401,28 +399,16 @@ ch: @Nod32team
 
 🔒 جلوگیری از ورود ربات
 !antibot enable
-
+!lock bots
 🔒 اجازه ورود ربات
 !antibot disable
-
+!unlock bots
 🔢 تغيير حساسيت ضد اسپم
 
 !setflood [5-20]
 
 ⚙ دریافت تنظیمات گروه 
 !settings
-➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
-🚫 اضافه کردن کلمه جدید به لیست فیلتر شده ها
-!filter set (word)
-
-❌ حذف کلمه از لیست فیلتر شده ها
-!filter del (word)
-
-⚠️ اخطار به کلمه فیلتر شده
-!filter warn (word)
-
-⛔️ لیست کلمات فیلتر شده
-!filterlist
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 📥 دريافت یوزر آی دی گروه يا کاربر
 !id
@@ -451,14 +437,11 @@ ch: @Nod32team
 👥 دعوت سازنده ربات به گروه
 !support
 
-📢 ارسال [سوال، پیشنهاد، مشکل]
-!feedback (text)
-
 © ورژن ربات
 !version
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 ⚜ ادمین : @SeyedKia
-🔱 کانال : @ParsTGBot
+🔱 کانال : @ParsTgBot
 ]]
    }
   serialize_to_file(config, './data/config.lua')
