@@ -1,17 +1,15 @@
 do
 
 function run(msg, matches)
-  return 'NOD32-BOT v8'.. VERSION .. [[ 
+  return 'ParsTG V.1'.. VERSION .. [[ 
  
-  Developer : @Behroozyaghi
+  Developer : @SeyedKia
   
-  Channel : @Nod32team
+  Channel : @ParsTGBot
   
-  Open git : https://github.com/BH-YAGHI/NOD32-BOT.git
+  ParsTg Version 1
   
-  NOD32 VERSION 8
-  
-  All rights reserved.
+  Good Luck ;)
   __________________]]
 end
 
