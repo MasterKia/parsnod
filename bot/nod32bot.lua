@@ -229,7 +229,6 @@ function create_config( )
     "inrealm",
     "invite",
     "leave_ban",
-    "linkpv",
     "location",
     "lock_join",
     "anti_fosh",
