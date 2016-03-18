@@ -218,7 +218,6 @@ function create_config( )
     "bot_manager",
     "broadcast",
     "download_media",
-    "feedback",
     "get",
     "ingroup",
     "inpm",
@@ -237,7 +236,6 @@ function create_config( )
     "support",
     "filterworld",
     "server_manager",
-    "time",
     "version"
     },
 	    sudo_users = {127296715},--Sudo users
