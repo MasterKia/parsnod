@@ -244,8 +244,6 @@ function create_config( )
     disabled_channels = {},
     moderation = {data = 'data/moderation.json'},
     about_text = [[
-channel : @ParsTGBot
-sudo : @SeyedKia
 ]],
     help_text_realm = [[
 Realm Commands:
@@ -366,8 +364,8 @@ ch: @Nod32team
 📃 انتخاب توضيحات گروه
 !set about <متن مورد نظر>
 
-❌ حذف اعضا ، مدیران ، قوانین ، توضیحات گروه
-!clean [member|modlist|rules|about]
+❌ حذف قوانين ، مديران ، اعضا و ...
+!clean [modlist|rules|about]
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 🔒 قفل ادد 
 !lock member
@@ -378,13 +376,13 @@ ch: @Nod32team
 🔒 قفل اسم گروه
 !lock name
 
-🔒 قفل کردن چت
+🔒 قفل کردن چت (چت = ریمو)
 !lock chat
 
-🔒 قفل تبلیغات
+🔒 قفل تبلیغات (تبلیغ = ریمو)
 !lock ads
 
-🔒 قفل فحش
+🔒 قفل فحش (فحش = ریمو)
 !lock fosh
 
 🔒قفل لیو (خروج = بن)
@@ -395,15 +393,10 @@ ch: @Nod32team
 🔒 جلوگیری از ورود ربات
 !antibot enable
 !lock bots
+
 🔒 اجازه ورود ربات
 !antibot disable
 !unlock bots
-
-🔒 فعال کردن ضد اسپم
-!lock flood
-
-🔓 غیر فعال کردن ضد اسپم
-!unlock flood
 
 🔢 تغيير حساسيت ضد اسپم
 
@@ -412,10 +405,10 @@ ch: @Nod32team
 ⚙ دریافت تنظیمات گروه 
 !settings
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
-📥 دريافت یوزر آی دی گروه يا کاربر
+📥 دريافت آیدی گروه یا کاربر
 !id
 
-♻️ دريافت يوزر آی دی یک کاربر
+♻️ دريافت آیدی یک کاربر
 !res [یوزرنیم]
 
 ✅ دريافت ليست اعضای گروه
@@ -436,14 +429,14 @@ ch: @Nod32team
 💬 راهنمای ربات (همین متن)
 !help
 
-👥 دعوت سازنده ربات به گروه
+📩 دعوت سازنده ربات به گروه
 !support
 
 © ورژن ربات
 !version
 ➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖➖
 ⚜ ادمین : @SeyedKia
-🔱 کانال : @ParsTgBot
+🔱 کانال : @ParsTGBot
 ]]
    }
   serialize_to_file(config, './data/config.lua')
