@@ -980,11 +980,11 @@ local function run(msg, matches)
     if matches[1] == 'setphoto' and is_momod(msg) then
       data[tostring(msg.to.id)]['settings']['set_photo'] = 'waiting'
       save_data(_config.moderation.data, data)
-      return 'Please send me new group photo now'
+      return 'عکس جدید گروه را بفرستید :'
     end
     if matches[1] == 'promote' and not matches[2] then
       if not is_owner(msg) then
-        return "Only the owner can prmote new moderators"
+        return "فقط صاحب گروه میتواند بقیه را مدیر کند !"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, promote_by_reply, false)
@@ -995,7 +995,7 @@ local function run(msg, matches)
         return
       end
       if not is_owner(msg) then
-        return "Only owner can promote"
+        return "فقط صاحب گروه میتواند بقیه را مدیر کند !"
       end
 	local member = matches[2]
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] promoted @".. member)
@@ -1010,7 +1010,7 @@ local function run(msg, matches)
     end
     if matches[1] == 'demote' and not matches[2] then
       if not is_owner(msg) then
-        return "Only the owner can demote moderators"
+        return "فقط صاحب گروه میتواند مدیران را از مدیریت برکنار کند !"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, demote_by_reply, false)
@@ -1024,7 +1024,7 @@ local function run(msg, matches)
         return "Only owner can demote"
       end
       if string.gsub(matches[2], "@", "") == msg.from.username and not is_owner(msg) then
-        return "You can't demote yourself"
+        return "شما نمیتوانید خودتان را از مدیریت برکنار کنید !"
       end
 	local member = matches[2]
         savelog(msg.to.id, name_log.." ["..msg.from.id.."] demoted @".. member)
@@ -1159,9 +1159,9 @@ local function run(msg, matches)
       local function callback (extra , success, result)
         local receiver = 'chat#'..msg.to.id
         if success == 0 then
-           return send_large_msg(receiver, '*Error: Invite link failed* \nReason: Not creator.')
+           return send_large_msg(receiver, 'امکان ساخت لینک وجود ندارد.چون ربات سازنده گروه نیست !')
         end
-        send_large_msg(receiver, "Created a new link")
+        send_large_msg(receiver, "لینک جدید ساخته شد !")
         data[tostring(msg.to.id)]['settings']['set_link'] = result
         save_data(_config.moderation.data, data)
       end
@@ -1175,10 +1175,10 @@ local function run(msg, matches)
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then 
-        return "Create a link using /newlink first !"
+        return "ابتدا با !newlink لینک بسازید !"
       end
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
-      return "Group link:\n"..group_link
+      return "لینک گروه :\n"..group_link
     end
 	if matches[1] == 'linkpv' then
       if not is_momod(msg) then
@@ -1186,14 +1186,14 @@ local function run(msg, matches)
       end
       local group_link = data[tostring(msg.to.id)]['settings']['set_link']
       if not group_link then 
-        return "Create a link using /newlink first !"
+        return "ابتدا با !newlink لینک بسازید !"
       end
        savelog(msg.to.id, name_log.." ["..msg.from.id.."] requested group link ["..group_link.."]")
      send_large_msg('user#id'..msg.from.id, "Group link:\n"..group_link)
     end
     if matches[1] == 'setowner' and matches[2] then
       if not is_owner(msg) then
-        return "For owner only!"
+        return "فقط برای صاحب گروه !"
       end
       data[tostring(msg.to.id)]['set_owner'] = matches[2]
       save_data(_config.moderation.data, data)
@@ -1203,7 +1203,7 @@ local function run(msg, matches)
     end
     if matches[1] == 'setowner' and not matches[2] then
       if not is_owner(msg) then
-        return "only for the owner!"
+        return "فقط برای صاحب گروه !"
       end
       if type(msg.reply_id)~="nil" then
           msgr = get_message(msg.reply_id, setowner_by_reply, false)
