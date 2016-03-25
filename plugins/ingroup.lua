@@ -276,11 +276,11 @@ local function lock_group_bots(msg, data, target)
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'yes' then
-    return 'Bots protection is already enabled'
+    return 'جلوگیری از ادد کردن ربات از قبل فعال است !'
   else
     data[tostring(target)]['settings']['lock_bots'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'Bots protection has been enabled'
+    return 'جلوگیری از ادد کردن ربات فعال شد !'
   end
 end
 
@@ -290,11 +290,11 @@ local function unlock_group_bots(msg, data, target)
   end
   local group_bots_lock = data[tostring(target)]['settings']['lock_bots']
   if group_bots_lock == 'no' then
-    return 'Bots protection is already disabled'
+    return 'جلوگیری از ادد کردن ربات از قبل غیر فعال است !'
   else
     data[tostring(target)]['settings']['lock_bots'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'Bots protection has been disabled'
+    return 'جلوگیری از ادد کردن ربات غیر فعال شد !'
   end
 end
 local function lock_group_fosh(msg, data, target)
@@ -303,11 +303,11 @@ return "For moderators only!"
 end
 local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
 if group_fosh_lock == 'yes' then
-return 'fosh word is already locked'
+return 'قفل فحش از قبل فعال است !'
 else
 data[tostring(target)]['settings']['antifosh'] = 'yes'
 save_data(_config.moderation.data, data)
-return 'fosh word has been locked'
+return 'قفل فحش فعال شد !'
 end
 end
 local function unlock_group_fosh(msg, data, target)
@@ -316,11 +316,11 @@ return "For moderators only!"
 end
 local group_fosh_lock = data[tostring(target)]['settings']['antifosh']
 if group_fosh_lock == 'no' then
-return 'fosh word is already unlocked'
+return 'قفل فحش از قبل غیر فعال است !'
 else
 data[tostring(target)]['settings']['antifosh'] = 'no'
 save_data(_config.moderation.data, data)
-return 'fosh word has been unlocked'
+return 'قفل فحش غیر فعال شد !'
 end
 end
 local function lock_group_join(msg, data, target)
