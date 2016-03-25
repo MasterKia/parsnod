@@ -193,7 +193,7 @@ local function check_member_modrem(cb_extra, success, result)
       end
       data[tostring(groups)][tostring(msg.to.id)] = nil
       save_data(_config.moderation.data, data)
-      return send_large_msg(receiver, 'Group has been removed')
+      return send_large_msg(receiver, 'گروه حذف شد !')
     end
   end
 end
@@ -231,12 +231,12 @@ local function set_descriptionmod(msg, data, target, about)
   local data_cat = 'description'
   data[tostring(target)][data_cat] = about
   save_data(_config.moderation.data, data)
-  return 'Set group description to:\n'..about
+  return 'تغییر توضیحات گروه به :\n'..about
 end
 local function get_description(msg, data)
   local data_cat = 'description'
   if not data[tostring(msg.to.id)][data_cat] then
-    return 'No description available.'
+    return 'هیچ توضیحاتی برای گروه مشخص نشده است.'
   end
   local about = data[tostring(msg.to.id)][data_cat]
   local about = string.gsub(msg.to.print_name, "_", " ")..':\n\n'..about
@@ -248,11 +248,11 @@ local function lock_group_chat(msg, data, target)
   end
   local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
   if group_chat_lock == 'yes' then
-    return 'chat=kick is already locked'
+    return 'قفل چت از قبل فعال است !'
   else
     data[tostring(target)]['settings']['lock_chat'] = 'yes'
     save_data(_config.moderation.data, data)
-    return 'chat=kick has been locked'
+    return 'قفل چت فعال شد !'
   end
 end
 
@@ -262,11 +262,11 @@ local function unlock_group_chat(msg, data, target)
   end
   local group_chat_lock = data[tostring(target)]['settings']['lock_chat']
   if group_chat_lock == 'no' then
-    return 'chat=kick is already unlocked'
+    return 'قفل چت از قبل غیر فعال است !'
   else
     data[tostring(target)]['settings']['lock_chat'] = 'no'
     save_data(_config.moderation.data, data)
-    return 'chat=kick has been unlocked'
+    return 'قفل چت غیر فعال شد !'
   end
 end
 
